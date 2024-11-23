@@ -1,0 +1,5 @@
+# Use Nginx as the base image
+FROM nginx:1.14
+
+# Add a basic HTML page for the stable app
+COPY stable.html /usr/share/nginx/html/index.html
