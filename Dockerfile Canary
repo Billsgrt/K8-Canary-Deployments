@@ -1,0 +1,5 @@
+# Use Nginx as the base image
+FROM nginx:1.16
+
+# Add a basic HTML page for the canary app
+COPY canary.html /usr/share/nginx/html/index.html
