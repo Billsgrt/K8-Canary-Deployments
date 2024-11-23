@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: canary-deployment
+  namespace: default
+spec:
+  replicas: 1  # Canary version gets limited traffic
+  selector:
+    matchLabels:
+      app: my-app
+      version: canary
+  template:
+    metadata:
+      labels:
+        app: my-app
+        version: canary
+    spec:
+      containers:
+      - name: canary-app
+        image: username/canary-app:1.0
+        ports:
+        - containerPort: 80
